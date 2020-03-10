@@ -1,0 +1,19 @@
+= form_for @tail2 do |f|
+  - if @tail2.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@tail2.errors.count, "error")} prohibited this tail2 from being saved:"
+      %ul
+        - @tail2.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :status
+    = f.text_field :status
+  .field
+    = f.label :friend_id
+    = f.text_field :friend_id
+  .field
+    = f.label :response
+    = f.text_area :response
+  .actions
+    = f.submit 'Save'

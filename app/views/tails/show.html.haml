@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Status:
+  = @tail.status
+%p
+  %b Friend:
+  = @tail.friend_id
+%p
+  %b Response:
+  = @tail.response
+
+= link_to 'Edit', edit_tail_path(@tail)
+\|
+= link_to 'Back', tails_path

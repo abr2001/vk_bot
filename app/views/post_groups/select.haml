@@ -1,0 +1,17 @@
+.container
+  %h3 Темы для автопостинга
+  = form_for @account do |f|
+    .row
+      .col-xs-12
+        .form-group
+          - @post_groups.each do |group|
+            %label.c-checkbox
+              = check_box_tag "account[auto_post_groups][]", group["id"], group[:checked]
+              %span.checkmark
+              = group["name"]
+      .col-xs-12
+        .form-group
+          = hidden_field_tag "account[auto_post_groups][]"
+          = f.submit 'Сохранить', class: "btn btn-info"
+          = link_to 'Отмена', accounts_path, class: "btn btn-default"
+

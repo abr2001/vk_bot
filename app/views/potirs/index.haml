@@ -1,0 +1,9 @@
+%h1 Короткие комментарии
+
+= render 'breadcrumbs', parent: @parent
+
+#list-potirs= render 'list', potirs: @potirs
+
+= link_to 'Добавить', '#', id: 'link-new-potir', class: 'btn btn-success'
+
+#form-potir= render 'form', potir: Potir.new

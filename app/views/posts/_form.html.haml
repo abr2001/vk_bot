@@ -1,0 +1,13 @@
+= form_for [@post_group, @post] do |f|
+  - if @post.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@post.errors.count, "error")} prohibited this post from being saved:"
+      %ul
+        - @post.errors.full_messages.each do |message|
+          %li= message
+
+  .form-group
+    = f.text_area :body, class: "form-control", rows: 20
+  .form-group
+    = f.submit 'Сохранить', class: "btn btn-success"
+    = link_to 'Отмена', post_group_posts_path(@post.post_group)

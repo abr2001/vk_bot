@@ -1,0 +1,5 @@
+%h1 Новая прощалка
+
+= render 'form', phrase: TotalPhrase.new(part: 'footer'), redirect_to: footers_total_phrases_path
+
+= render 'list', phrases: TotalPhrase.footers

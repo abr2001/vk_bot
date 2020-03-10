@@ -1,0 +1,5 @@
+%h1 Новый заголовок
+
+= render 'form', phrase: TotalPhrase.new(part: 'header'), redirect_to: headers_total_phrases_path
+
+= render 'list', phrases: TotalPhrase.headers

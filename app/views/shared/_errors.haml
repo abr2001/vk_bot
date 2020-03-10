@@ -1,0 +1,5 @@
+.errors
+  - item.errors.full_messages.each do |error|
+    .alert.alert-danger.alert-dismissable
+      %a.close{"aria-label" => "close", "data-dismiss" => "alert", :href => "#"} X
+      = error

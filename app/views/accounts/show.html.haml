@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @account.name
+%p
+  %b Token:
+  = @account.token
+%p
+  %b User:
+  = @account.user
+%p
+  %b Provider:
+  = @account.provider
+%p
+  %b Code:
+  = @account.code
+%p
+  %b Comment:
+  = @account.comment
+
+= link_to 'Edit', edit_account_path(@account)
+\|
+= link_to 'Back', accounts_path

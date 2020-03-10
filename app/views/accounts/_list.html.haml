@@ -1,0 +1,35 @@
+.row.row_striped.row_log.row_header
+  .col-md-2
+    Аккаунт
+  .col-md-2
+    Использовать как бот-комментатор
+  .col-md-1
+    В очереди заявок
+  .col-md-1
+    Отправлено заявок
+
+- accounts.each do |account|
+  .row.row_striped.row_log
+    .col-md-2
+      -if account.code.present?
+        = link_to account.name, "https://vk.com/id#{account.code}", target: "_blank"
+        = account.sex
+      -else
+        = account.name
+    .col-md-2
+      %label.c-checkbox
+        = check_box_tag 'commenter', 'do', account.commenter, class: "do-commenter",  data: { account_id: account.id }, id: "commenter#{account.id}"
+        %span.checkmark
+
+    .col-md-1= account.tails.not_sended.count
+    .col-md-1
+      %strong= link_to account.tails.sended.count, account_tails_path(account)
+    .col-md-1= link_to 'Действия', account_actions_path(account), class: 'btn btn-default'
+    .col-md-1= link_to 'Прокси', '#', class: 'link_edit_proxy_account', data: { account_id: account.id }
+    .col-md-1= link_to 'Тест', account_test_vk_path(account)
+    .col-md-1= link_to 'Очистить очередь', account_clear_all_tails_path(account), data: { confirm: "Вы уверены, что хотите очистить очередь заявок для #{account.name} ?" }
+    .col-md-1= link_to 'Удалить', account, method: :delete, data: { confirm: "Вы уверены, что хотите удалить #{account.name} ?" }
+    .col-md-1= link_to 'Автопостинг', account_auto_posts_path(account)
+  .row
+    .col-md-12{style: 'display: none;', id: "form-proxy-account-#{account.id}"}= render('accounts/proxy-form', account:   account)
+

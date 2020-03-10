@@ -1,0 +1,17 @@
+= form_for phrase do |f|
+  - if phrase.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@keyphrase.errors.count, "error")} prohibited this keyphrase from being saved:"
+      %ul
+        - phrase.errors.full_messages.each do |message|
+          %li= message
+
+
+  .form-group.required
+    = f.label :value, 'Значение', class: "control-label"
+    = f.text_area :value, class: "form-control", required: true, rows: 10
+  .form-group
+    = f.hidden_field :part
+    = hidden_field_tag :redirect_to, redirect_to
+    = f.submit 'Сохранить', class: "btn btn-primary"
+    = link_to 'Отмена', redirect_to, class: "btn btn-default"

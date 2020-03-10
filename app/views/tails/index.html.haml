@@ -1,0 +1,28 @@
+%h3 Лог отправленных заявок для #{link_to @account.name, user_list_accounts_path(@account.user)}
+
+%table.table.table-striped.table-hover.table-sm
+  %thead
+    %tr
+      %th Идентификатор
+      %th Ответ ВК
+      %th Дата
+      %th Код ошибки
+      %th Captcha решена
+  %tbody
+    - @tails.each do |tail|
+      %tr
+        %td= link_to tail.friend_id, "https://vk.com/id#{tail.friend_id}", target: "_blank"
+        %td= tail.response
+        %td= tail.updated_at.localtime.strftime("%d.%m.%Y %k:%M")
+        %td= tail.error_code
+        %td
+          -if tail.resolved_captcha
+            %span.fa.fa-check
+        =#%td= link_to 'Destroy', tail, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= will_paginate @tails, renderer: BootstrapPagination::Rails
+
+
+=# link_to 'Добавить', new_tail_path

@@ -1,0 +1,39 @@
+%h1
+  Посты
+  %br
+  %strong=@post_group.name
+
+= render 'add_btn'
+%br
+
+%hr
+
+.well
+  = form_tag post_group_add_posts_from_file_path(@post_group), multipart: true do |f|
+    .form-group
+      = label_tag  :user_id, 'Добавить посты из файла'
+      = file_field_tag 'datafile' , :accept => "text/plain" ,  :required => true
+    .form-group
+      = submit_tag 'Добавить', class: "btn btn-info"
+
+  = link_to 'Выгрузить в файл', post_group_to_file_path(@post_group)
+
+
+%table.table.table-striped.table-hover.table-sm
+  %thead
+    %tr
+      %th
+
+  %tbody
+    - @posts.each do |post|
+      %tr
+        %td
+          = text_area_tag '', post.body, readonly: true, class: "form-control", rows: 10
+          = link_to 'Изменить', edit_post_path(post)
+          = link_to 'Удалить', post, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+%hr
+
+= render 'add_btn'

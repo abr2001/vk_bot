@@ -1,0 +1,18 @@
+%h3 Лог ошибок API VK
+
+.row.row_striped.row_log.row_header
+  .col-md-1 Дата
+  .col-md-1 Метод
+  .col-md-1 Код ошибки
+  .col-md-8 Ответ ВК
+  .col-md-1 Аккаунт
+- @logs.each do |log|
+  .row.row_striped.row_log
+    .col-md-1= log.created_at.localtime.strftime("%d.%m.%Y %k:%M:%S")
+    .col-md-1= log.method
+    .col-md-1= log.error_code
+    .col-md-8= log.response
+    - if log.account.present?
+      .col-md-1= link_to log.account.code, "https://vk.com/id#{log.account.code}", target: "_blank"
+%br
+= will_paginate @logs, renderer: BootstrapPagination::Rails

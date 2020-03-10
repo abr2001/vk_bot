@@ -1,0 +1,12 @@
+= form_for @comment_post do |f|
+  - if @comment_post.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@comment_post.errors.count, "error")} prohibited this comment_post from being saved:"
+      %ul
+        - @comment_post.errors.full_messages.each do |message|
+          %li= message
+  .form-group.required
+    = label_tag :link, 'Ссылка на пост', class: "control-label"
+    = text_field_tag :link, '', class: "form-control", required: true
+  .form-group
+    = f.submit 'Сохранить', class: "btn btn-success"

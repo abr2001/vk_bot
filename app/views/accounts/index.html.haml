@@ -1,0 +1,9 @@
+%h1 Ваши аккаунты
+#account_list
+  = render 'list', accounts: @accounts
+%br
+
+= link_to 'Добавить', '', class: 'link-form-login-vk btn btn-info'
+.form-login-vk
+  = form_tag auth_vk_path, remote: :true do |f|
+    = render 'form-login-vk'

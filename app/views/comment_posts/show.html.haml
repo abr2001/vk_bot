@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @comment_post.user
+%p
+  %b Owner:
+  = @comment_post.owner_id
+%p
+  %b Post:
+  = @comment_post.post_id
+
+= link_to 'Edit', edit_comment_post_path(@comment_post)
+\|
+= link_to 'Back', comment_posts_path

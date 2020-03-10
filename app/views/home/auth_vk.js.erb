@@ -1,0 +1,9 @@
+<%if @result.success%>
+  $('.form-login-vk').hide();
+  $('.form-login-vk-error').hide();
+  $('.link-form-login-vk').show();
+  $('#account_list').html("<%= j render 'accounts/list', accounts: @result.accounts%>");
+<%else%>
+  $('.form-login-vk-error').show();
+  $('.form-login-vk-error').html("<%= @result.error%>")
+<%end%>

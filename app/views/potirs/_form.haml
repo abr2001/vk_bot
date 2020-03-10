@@ -1,0 +1,6 @@
+= form_for potir, remote: true do |f|
+  = f.hidden_field :parent_id, value: params[:parent_id]
+  .form-group= f.text_field :name, class: 'form-control'
+  .form-group
+    = f.submit 'Сохранить', class: 'btn btn-primary'
+    %button.btn.btn-default#cancel-form-potir Отмена

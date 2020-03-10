@@ -1,0 +1,20 @@
+%h1 Ключевые фразы для робота
+
+%table.table.table-striped.table-hover.table-sm
+  %thead
+    %tr
+      %th Значение
+      %th
+      %th
+      %th
+
+  %tbody
+    - @keyphrases.each do |keyphrase|
+      %tr
+        %td= keyphrase.value
+        %td= link_to 'Редактировать', edit_keyphrase_path(keyphrase)
+        %td= link_to 'Удалить', keyphrase, method: :delete, data: { confirm: "Уверенны? Удаляем #{keyphrase.value} ?" }
+        %td= link_to 'Фразы', keyphrase_phrases_path(keyphrase)
+%br
+
+= link_to 'Добавить', new_keyphrase_path, class: "btn btn-success"

@@ -1,0 +1,21 @@
+%h3 Посты для комментирования ботами
+%hr
+
+
+%table.table.table-striped.table-hover.table-sm
+  %thead
+    %tr
+      %th Пост
+      %th
+      %th
+
+  %tbody
+    - @comment_posts.each do |comment_post|
+      %tr
+        %td= link_to comment_post.link, "#{comment_post.link}", target: "blank_"
+        %td= link_to 'Комментировать', bot_comment_post_path(comment_post), method: :post, data: { confirm: 'Уверены!? Вызываем бота?!' }, class: "btn btn-default"
+        %td= link_to 'Удалить', comment_post, method: :delete, data: { confirm: 'Уверены!? Удаляем?!' }
+
+%br
+
+= link_to 'Добавить', new_comment_post_path, class: "btn btn-default"

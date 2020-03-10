@@ -1,0 +1,64 @@
+.col-md-8.col-md-offset-2
+  .instruction-link
+    = link_to 'Видео-инструкция', 'https://www.youtube.com/watch?v=jLPz4wuPHlk&t', target: "_blank"
+  .instruction-link
+    = link_to 'Инструкция', 'https://docs.google.com/document/d/1Zbqrw7OriDHOraq4J-ls56bk2FG2L3jrghET3VGqFx8/edit?usp=sharing', target: "_blank"
+
+  %h3 Типичные трудности
+
+  #accordion.panel-group
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          %a{"data-parent": "#accordion", "data-toggle": "collapse", href: "#collapse1"}
+            Не могут добавить аккаунт, ничего не происходит
+      #collapse1.panel-collapse.collapse.in
+        .panel-body
+          Это, потому что включена двухфакторная авторизация в настройках безопасности ВКонтакте.
+          %br
+          Решение: отключить двухфакторную авторизацию в настройках безопасности ВКонтакте,
+          %br
+          подробнее об этом
+          = link_to 'тут', 'https://vk.com/page-59800369_47885415', target: "_blank"
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          %a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapse2"}
+            В случае блокировки аккаунта администрацией ВКонтакта, действия такие:
+      #collapse2.panel-collapse.collapse
+        .panel-body
+          Очистить очередь.
+          %br
+          Удалять аккаунт не обязательно.
+          После снятия блокировки,
+          %br
+          подключить аккаунт заново, согласно
+          = link_to 'инструкции', 'https://www.youtube.com/watch?v=jLPz4wuPHlk&t=60s', target: "_blank"
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          %a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapse3"}
+            Не могут узнать ID страницы в ВКонтакте.
+      #collapse3.panel-collapse.collapse
+        .panel-body
+          это тут
+          = link_to 'тут', 'http://regvk.com/id/', target: "_blank"
+          или
+          = link_to 'так ', 'https://www.google.ru/search?q=%D0%BA%D0%B0%D0%BA+%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C+id+%D0%B0%D0%BA%D0%BA%D0%B0%D1%83%D0%BD%D1%82%D0%B0+%D0%B2%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B5&oq=%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C+id+%D0%B0%D0%BA%D0%BA%D0%B0%D1%83%D0%BD%D1%82%D0%B0+%D0%B2%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D0%B5&aqs=chrome.1.69i57j0.18855j0j7&sourceid=chrome&ie=UTF-8', target: "_blank"
+          = ";)"
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          %a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapse4"}
+            Не могу зайти в действия: вижу сообщение "Токен ВК для ... не действителен"
+      #collapse4.panel-collapse.collapse
+        .panel-body
+          Это значит, что ваш аккаунт либо заблокирован администрацияей контакта,
+          %br
+          либо вы сменили пароль,
+          %br
+          либо включили
+          =link_to 'двухфакторную авторизацию', 'https://vk.com/page-59800369_47885415', target: "_blank"
+
+
+

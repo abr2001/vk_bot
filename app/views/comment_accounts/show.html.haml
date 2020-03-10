@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Owner:
+  = @comment_account.owner_id
+
+= link_to 'Edit', edit_comment_account_path(@comment_account)
+\|
+= link_to 'Back', comment_accounts_path

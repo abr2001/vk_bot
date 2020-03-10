@@ -1,0 +1,26 @@
+%h1 Группы постов
+
+%table.table.table-striped.table-hover.table-sm
+  %thead
+    %tr
+      %th Группа
+      %th
+      %th
+      %th
+      %th
+
+  %tbody
+    - @post_groups.each do |post_group|
+      %tr
+        %td= post_group.name
+        %td= link_to "Посты (#{post_group.posts.count})", post_group_posts_path(post_group)
+        %td= link_to 'Изменить название', edit_post_group_path(post_group)
+        %td= link_to 'Удалить', post_group, method: :delete, data: { confirm: 'Are you sure?' }
+    %tr
+      %th Итого
+      %th= Post.count
+      %th{colspan: 2}
+
+%br
+
+= link_to 'Новая группа', new_post_group_path, class: "btn btn-success"

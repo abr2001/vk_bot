@@ -1,0 +1,1 @@
+$("#phrase" + <%= @total_phrase.id %>).html("<%= j render 'form', phrase: @total_phrase, redirect_to: params[:redirect_to]%>")

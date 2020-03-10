@@ -1,0 +1,23 @@
+= form_for account do |f|
+  - if account.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@account.errors.count, "error")} prohibited this account from being saved:"
+      %ul
+        - @account.errors.full_messages.each do |message|
+          %li= message
+
+  .form-group.col-md-3
+    = f.label :proxy_ip, 'IP', class: "control-label"
+    = f.text_field :proxy_ip, class: "form-control"
+  .form-group.col-md-3
+    = f.label :proxy_port, 'порт', class: "control-label"
+    = f.text_field :proxy_port, class: "form-control"
+  .form-group.col-md-3
+    = f.label :proxy_user, 'User', class: "control-label"
+    = f.text_field :proxy_user, class: "form-control"
+  .form-group.col-md-3
+    = f.label :proxy_password, 'пароль', class: "control-label"
+    = f.text_field :proxy_password, class: "form-control"
+  .form-group.col-md-12
+    = f.submit 'Сохранить', class: "btn btn-primary"
+    = link_to 'Отмена', '#', class: "btn btn-default btn-cancel-proxy-form", data: { account_id: account.id }

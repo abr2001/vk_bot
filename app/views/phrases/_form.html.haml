@@ -1,0 +1,13 @@
+= form_for [@keyphrase, @phrase] do |f|
+  - if @phrase.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@phrase.errors.count, "error")} prohibited this phrase from being saved:"
+      %ul
+        - @phrase.errors.full_messages.each do |message|
+          %li= message
+
+  .form-group.required
+    = f.label :value, 'Фраза', class: "control-label"
+    = f.text_area :value, class: "form-control", required: true, rows: 10
+  .actions
+    = f.submit 'Сохранить', class: "btn btn-primary"

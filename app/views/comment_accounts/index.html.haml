@@ -1,0 +1,21 @@
+%h1 ID аккаунтов в контакте, которые подписаны на робота-комментатора
+
+%table.table.table-striped.table-hover.table-sm
+  %thead
+    %tr
+      %th Owner
+      %th
+
+  %tbody
+    - @comment_accounts.each do |comment_account|
+      %tr
+        %td
+          - if comment_account.owner_id > 0
+            = link_to comment_account.owner_id, "https://vk.com/id#{comment_account.owner_id}", target: "_blank"
+          - else
+            = link_to comment_account.owner_id, "https://vk.com/club#{-comment_account.owner_id}", target: "_blank"
+        %td= link_to 'Удалить', comment_account, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'Добавить', new_comment_account_path, class: "btn btn-default"

@@ -1,0 +1,34 @@
+vk_job:
+  cron: "/7 * * * *"
+  class: "VkJob"
+  queue: default
+
+vk_resolve_captch_job:
+  cron: "/7 * * * *"
+  class: "VkResolveCaptchaJob"
+  queue: default
+
+vk_comment_job:
+  cron: "/13 * * * *"
+  class: "VkCommentJob"
+  queue: default
+
+vk_delete_friends_job:
+  cron: "/3 * * * *"
+  class: "VkDeleteFriendsJob"
+  queue: default
+
+vk_post_job:
+  cron: "12 /4 * * *"
+  class: "VkPostJob"
+  queue: default
+
+clear_api_log_job:
+  cron: "0 0 * * *"
+  class: "ClearApiLogJob"
+  queue: default
+
+test_job:
+  cron: "/10 * * * * *"
+  class: "TestJob"
+  queue: default

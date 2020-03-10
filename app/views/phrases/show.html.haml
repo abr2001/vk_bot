@@ -1,0 +1,7 @@
+%p
+  %b Value:
+  = @phrase.value
+
+= link_to 'Edit', edit_phrase_path(@phrase)
+\|
+= link_to 'Back', keyphrase_phrases_path(@phrase.keyphrase)

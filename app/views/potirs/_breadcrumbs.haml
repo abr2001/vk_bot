@@ -1,0 +1,10 @@
+- if parent.present?
+  = link_to 'Короткие комментарии', potirs_path
+
+- if parent&.parent.present?
+  = '/'
+  = link_to parent.parent.name, potirs_path(parent_id: parent.parent_id)
+
+- if parent.present?
+  = '/'
+  = parent.name

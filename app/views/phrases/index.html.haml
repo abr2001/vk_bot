@@ -1,0 +1,11 @@
+%h1
+  Комментарии для ключевой фразы:
+  %strong= @keyphrase.value
+
+.btn-add= link_to 'Добавить фразу', new_keyphrase_phrase_path(@keyphrase), class: "btn btn-success"
+
+#list-phrases= render 'list', phrases: @phrases
+
+%br
+
+.btn-add= link_to 'Добавить фразу', new_keyphrase_phrase_path(@keyphrase), class: "btn btn-success"

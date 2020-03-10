@@ -1,0 +1,18 @@
+.form-group.required
+  = label_tag  :email, 'e-mail или телефон', class: "control-label"
+  = text_field_tag :email, '', required: true, class: "form-control"
+.form-group.required
+  = label_tag  :password, 'пароль', class: "control-label"
+  = password_field_tag :password, '', required: true, class: "form-control"
+.form-group
+  = label_tag  :code, 'Код', class: "control-label"
+  .text-muted.small Если вы используете двухфакторную авторизацию, введите код из приложения для генерации кодов, чтобы подтвердить, что Вы — владелец страницы.
+  = text_field_tag :code, '', class: "form-control"
+.form-group.required
+  = label_tag  :vk_app_id, 'ID приложения', class: "control-label"
+  = text_field_tag :vk_app_id, '', required: true, class: "form-control"
+
+.alert.alert-danger.form-login-vk-error
+.form-group
+  = submit_tag 'Войти', class: "btn btn-success"
+  = link_to 'Отмена', '', class: 'btn btn-default', id: 'cancel_auth_vk'

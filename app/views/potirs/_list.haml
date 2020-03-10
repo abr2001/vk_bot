@@ -1,0 +1,16 @@
+%table.table.table-striped.table-hover.table-sm
+  %thead
+    %tr
+      %th
+      %th
+
+  %tbody
+    - potirs.each do |potir|
+      %tr
+        %td
+          - if potir.parent.blank? || potir.parent.parent.blank?
+            = link_to potir.name, potirs_path(parent_id: potir.id)
+          - else
+            = potir.name
+        %td
+          = link_to 'X', potir, title: 'Удалить', method: :delete, remote: true, data: { confirm: "Удалить #{potir.name}, вы уверены?" }

@@ -1,0 +1,19 @@
+%h1 Пользователи
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th
+      %th email
+      %th Аккаунтов
+      %th Зарегистрирован
+
+  %tbody
+    - @users.each_with_index do |user, index|
+      %tr
+        %td= index + 1
+        %td= link_to user.email, user_list_accounts_path(user)
+        %td= user.accounts.count
+        %td= user.created_at
+
+%br

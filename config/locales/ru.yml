@@ -1,0 +1,9 @@
+ru:
+  number:
+    currency:
+      format:
+        unit: '<span><i class="fa fa-rub" aria-hidden="true"></i></span>'
+        delimiter: ','
+        separator: '.'
+        precision: 2
+        format: '%n%u'

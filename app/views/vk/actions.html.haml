@@ -1,0 +1,23 @@
+.containner
+  .row.vk_user_info
+    .col-md-1= link_to (image_tag @vk_user.photo_100), "https://vk.com/id#{@vk_user.id}", target: "_blank"
+    .col-md-11
+      %strong= "#{@vk_user.first_name} #{@vk_user.last_name}"
+  .row
+    .col-md-4
+      .well
+        = form_tag account_add_friends_get_path(@account) do |f|
+          .form-group
+            = label_tag  :user_id, 'Добавить друзей из аккаунта'
+            = text_field_tag :user_id, '', required: true, class: "form-control", placeholder: "ID пользователя в VK"
+          .form-group
+            = submit_tag 'Добавить в очередь', class: "btn btn-success"
+
+    .col-md-4
+      .well
+        = form_tag account_add_friends_from_file_path(@account), multipart: true do |f|
+          .form-group
+            = label_tag  :user_id, 'Добавить друзей из файла'
+            = file_field_tag 'datafile' , :accept => "text/plain" ,  :required => true
+          .form-group
+            = submit_tag 'Добавить в очередь', class: "btn btn-info"

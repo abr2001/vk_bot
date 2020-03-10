@@ -1,0 +1,9 @@
+- if flash[:notice].present?
+  .alert.alert-success.alert-dismissable
+    %a.close{"aria-label" => "close", "data-dismiss" => "alert", :href => "#"} X
+    = flash[:notice]
+
+- if flash[:alert].present?
+  .alert.alert-danger.alert-dismissable
+    %a.close{"aria-label" => "close", "data-dismiss" => "alert", :href => "#"} X
+    = flash[:alert]

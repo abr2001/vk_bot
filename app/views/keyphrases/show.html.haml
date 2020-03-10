@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Value:
+  = @keyphrase.value
+
+= link_to 'Edit', edit_keyphrase_path(@keyphrase)
+\|
+= link_to 'Back', keyphrases_path

@@ -1,0 +1,25 @@
+%table.table.table-striped.table-hover.table-sm
+  %thead
+    %tr
+      %th
+      %th
+      %th Фраза
+      %th
+      %th
+
+  %tbody
+    - phrases.each_with_index do |phrase, index|
+      %tr
+        %td
+          - unless index.zero?
+            = form_tag up_phrase_path(phrase), method: :post, remote: true do
+              = button_tag type: "submit", class: "btn btn-default", data: { disable_with: ".." }, title: "Вверх" do
+                %span.glyphicon.glyphicon-arrow-up
+        %td
+          - if index + 1 != phrases.size
+            = form_tag down_phrase_path(phrase), method: :post, remote: true do
+              = button_tag type: "submit", class: "btn btn-default", data: { disable_with: "" }, title: "Вниз" do
+                %span.glyphicon.glyphicon-arrow-down
+        %td= phrase.value
+        %td= link_to 'Редактировать', edit_phrase_path(phrase)
+        %td= link_to 'Удалить', phrase, method: :delete, data: { confirm: "Уверены? Удалить: '#{phrase.value}'?" }
